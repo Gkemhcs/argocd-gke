@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cnt-1
-          image: gcr.io/nanna-398608/prom-app # Replace with your container image and tag
+          image: gcr.io/PROJECT_ID/prom-app # Replace with your container image and tag
           ports:
             - containerPort: 8080 # Replace with the port your application listens on
               name: scrape
