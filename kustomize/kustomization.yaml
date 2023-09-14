@@ -1,5 +1,5 @@
 resources:
 - manifests/deployment.yaml
-- manifests/configmap.yaml
+
 namePrefix: kustomize
 namespace: helloclick
