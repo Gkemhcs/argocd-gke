@@ -2,4 +2,4 @@ resources:
 - manifests/deployment.yaml
 - manifests/configmap.yaml
 namePrefix: kustomize
-namespace: hello-click
+namespace: helloclick
