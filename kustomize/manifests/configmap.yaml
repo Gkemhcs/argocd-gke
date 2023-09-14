@@ -4,3 +4,4 @@ metadata:
     name: secret-1
 data:
    name:Z2tlbWhjcwo=
+type: Opaque
