@@ -3,5 +3,5 @@ kind: Secret
 metadata:
     name: secret-1
 data:
-   name:Z2tlbWhjcwo=
+   name: Z2tlbWhjcwo=
 type: Opaque
