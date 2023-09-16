@@ -7,4 +7,5 @@ metadata:
 data:
      server: |
                koti: hello
+               geneder: male
                
