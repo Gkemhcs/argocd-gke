@@ -23,7 +23,7 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: prejob-2
+  generateName: prejob-2
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "2"
@@ -47,7 +47,7 @@ kind: Job
 metadata:
   name:  postjob-1
   annotations:
-    argocd.argoproj.io/hook:SyncFail
+    argocd.argoproj.io/hook: SyncFail
    
 spec:
      completions: 1
