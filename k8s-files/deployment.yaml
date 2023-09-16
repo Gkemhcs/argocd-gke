@@ -12,12 +12,12 @@ spec:
   selector:
     matchLabels:
       app: prom
-      run: pro
+ 
   template:
     metadata:
       labels:
         app: prom
-        run: pro
+     
     spec:
       containers:
         - name: cnt-1
