@@ -8,4 +8,5 @@ data:
      server: |
                koti: hello
                geneder: male
+               click: fine
                
