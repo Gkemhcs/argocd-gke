@@ -9,7 +9,7 @@ metadata:
 spec:
   replicas: 3  # Number of desired replicas
   selector:
-    matchLabels:
+ matchLabels:
       app: skaffold
   template:
     metadata:
@@ -18,5 +18,5 @@ spec:
     spec:
       containers:
         - name: cnt-1
-          image: gcr.io/helm-pract/skaffold-app # Replace with your container image and tag
+          image: gcr.io/helm-pract/skaffold-ap # Replace with your container image and tag
        
