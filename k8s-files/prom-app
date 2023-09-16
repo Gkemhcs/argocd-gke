@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prom-app
+  name: skaffold
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
@@ -10,11 +10,11 @@ spec:
   replicas: 3  # Number of desired replicas
   selector:
     matchLabels:
-      app: prom
+      app: skaffold
   template:
     metadata:
       labels:
-        app: prom
+        app: skaffold
     spec:
       containers:
         - name: cnt-1
