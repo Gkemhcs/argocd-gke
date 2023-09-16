@@ -33,7 +33,7 @@ spec:
           spec: 
             containers:
             - name: nginx
-              image: nginx
+        
               command: ["/bin/bash"]
               args:
               - -c
@@ -47,8 +47,8 @@ kind: Job
 metadata:
   name:  postjob-1
   annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/hook:SyncFail
+   
 spec:
      completions: 1
      template:
@@ -62,6 +62,7 @@ spec:
               - |
                    sleep 2 
                    date
+                   echo "error found"
             restartPolicy: Never
 ---
 apiVersion: batch/v1
