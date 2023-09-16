@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prom-app
+  annotations:
+       argocd.argoproj.io/sync-options: Replace=true
 
   labels:
     app: my-app
