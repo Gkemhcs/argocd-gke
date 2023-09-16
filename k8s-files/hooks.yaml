@@ -1,0 +1,83 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prejob-1
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+     completions: 1
+     template:
+          spec: 
+            containers:
+            - name: nginx
+              command: ["/bin/bash"]
+              args:
+              - -c
+              - |
+                   sleep 2 
+                   date
+            restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: prejob-2
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+     completions: 1
+     template:
+          spec: 
+            containers:
+            - name: nginx
+              command: ["/bin/bash"]
+              args:
+              - -c
+              - |
+                   sleep 2 
+                   date
+            restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name:  postjob-1
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+     completions: 1
+     template:
+          spec: 
+            containers:
+            - name: nginx
+              command: ["/bin/bash"]
+              args:
+              - -c
+              - |
+                   sleep 2 
+                   date
+            restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postjob-2
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    
+spec:
+     completions: 1
+     template:
+          spec: 
+            containers:
+            - name: nginx
+              command: ["/bin/bash"]
+              args:
+              - -c
+              - |
+                   sleep 2 
+                   date
+            restartPolicy: Never
