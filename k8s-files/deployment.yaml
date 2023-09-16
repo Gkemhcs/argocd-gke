@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: cnt-1
-          image: gcr.io/helm-pract/prom-ap # Replace with your container image and tag
+          image: gcr.io/argo-gke/start # Replace with your container image and tag
           ports:
             - containerPort: 8080 # Replace with the port your application listens on
               name: scrape
