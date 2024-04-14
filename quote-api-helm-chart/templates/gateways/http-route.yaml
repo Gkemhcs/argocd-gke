@@ -1,0 +1,21 @@
+{{- if .Values.quote_api_service.create}}
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: quote-api-http-route 
+  namespace: {{.Values.quote_api_service.namespace}}
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: quote-api-gateway 
+  hostnames:
+  - "quote.api.com"
+  rules:
+    - backendRefs:
+        - name: quote-api-svc-stable
+          weight: 50
+          port: 80
+        - name: quote-api-svc-canary
+          weight: 50
+          port: 80
+{{- end }}
