@@ -1,5 +1,0 @@
-resources:
-- manifests/deployment.yaml
-
-namePrefix: kustomize
-namespace: helloclick
