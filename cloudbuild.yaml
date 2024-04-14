@@ -3,8 +3,8 @@ steps:
   args: 
   - "build"
   - "-t"
-  - "us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api"
+  - "us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api:v3"
   - "."
   dir: app 
 images:
-- us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api
+- us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api:v3

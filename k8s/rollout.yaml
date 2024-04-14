@@ -1,0 +1,55 @@
+{{-  if .Values.quote_api_service.create }}
+apiVersion:  argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name:  {{ .Values.quote_api_service.name }}
+  namespace: {{ .Values.quote_api_service.namespace }}
+spec:
+  replicas: 10 
+  selector:
+      {{- with .Values.quote_api_service.labels}}
+      matchLabels:
+        {{- toYaml . | nindent 10 }}
+     {{- end }}
+  template:
+      metadata:
+       labels:
+          {{- with .Values.quote_api_service.labels}}
+              {{- toYaml . | nindent 10 }}
+           {{- end }}
+      spec:
+        containers:
+          - name: quote-api 
+            image: {{.Values.image.LOCATION}}-docker.pkg.dev/{{.Values.image.PROJECT_ID}}/{{.Values.image.REPOSITORY_NAME}}/quote-api
+            ports:
+            - containerPort: 8080
+            envFrom:
+              - secretRef:
+                   name: {{.Values.quote_api_service.secretRef}}
+  revisionHistoryLimit: 3
+  strategy:
+     canary:
+       
+      stableService: quote-api-svc-stable
+      canaryService: quote-api-svc-canary 
+      
+      stableMetadata:
+          labels:
+             role: stable 
+      canaryMetadata:
+          labels:
+             role: canary
+    
+      maxUnavailable: 0
+      steps:
+      - setWeight: 25
+      - pause: 
+          duration: "1m"
+      - setWeight: 50
+      - pause:   
+            duration: "2m"
+      - setWeight: 75
+      - pause: 
+          duration: "5m"
+      - setWeight: 100
+{{- end }}

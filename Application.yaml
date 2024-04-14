@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quote-api-app # Name of your application
+  namespace: argocd  # Recommended to place Argo CD apps in the 'argocd' namespace
+spec:
+  project: default
+  source: 
+     repoURL: 'https://github.com/Gkemhcs/argocd-gke.git'
+     path: quote-api-helm-chart
+     targetRevision: main
+     helm:
+      valueFiles:
+      - ../values.yaml
+  destination:
+   server: 'https://kubernetes.default.svc'
+  syncPolicy:
+   automated:
+    prune: true
+    selfHeal: true
