@@ -1,0 +1,10 @@
+steps:
+- name: gcr.io/cloud-builders/docker
+  args: 
+  - "build"
+  - "-t"
+  - "us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api"
+  - "."
+  dir: app 
+images:
+- us-docker.pkg.dev/gkem-api-new/quote-repo/quote-api

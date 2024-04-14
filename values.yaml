@@ -1,0 +1,11 @@
+image:
+   PROJECT_ID: gkem-api-new 
+   LOCATION: us
+   REPOSITORY_NAME: quote-repo
+external_secrets:
+     namespace: quote-ns 
+     k8s_sa: quote-secrets-sa
+     gcp_sa: secret-accessor@gkem-api-new.iam.gserviceaccount.com
+     Project_ID: gkem-api-new
+     Cluster_Location: asia-south2-a
+     Cluster_Name: cluster-1

@@ -1,0 +1,20 @@
+{{- if .Values.quote_api_service.create }}
+apiVersion: v1
+kind: Service 
+metadata:
+    name: quote-api-svc 
+    namespace: {{ .Values.quote_api_service.namespace }}
+    
+spec:
+  type: LoadBalancer
+  {{- with .Values.quote_api_service.labels }}
+  selector:
+    {{- toYaml . | nindent 10 }}
+  {{- end }}
+  
+   
+  ports:
+  - port: 80
+    targetPort: 8080
+    name: http-web
+{{- end }}

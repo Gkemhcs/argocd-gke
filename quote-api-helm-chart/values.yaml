@@ -1,0 +1,13 @@
+quote_api_service:
+    create: true
+    name: quote-api-server
+    namespace: quote-ns 
+    labels:
+       app: quote-api 
+       version: v1 
+       platform: gke 
+    secretRef: quote-api-creds
+image:
+   PROJECT_ID: gkem-api-new 
+   LOCATION: us
+   REPOSITORY_NAME: quote-repo
