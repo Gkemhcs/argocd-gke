@@ -1,0 +1,6 @@
+bindings:
+- members:
+  - serviceAccount:github-actions@gkem-api-new.iam.gserviceaccount.com
+  role: roles/artifactregistry.createOnPushWriter
+etag: BwYWHNFqYM4=
+version: 1

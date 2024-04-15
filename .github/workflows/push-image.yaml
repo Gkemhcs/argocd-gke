@@ -36,7 +36,7 @@ jobs:
           - name: Build and Push container 
             id: push_container
             run: |
-               export DOCKER_IMAGE_URL="${{vars.GAR_LOCATION}}-docker.pkg.dev/${{ vars.PROJECT_ID }}/${{vars.GAR_REPOSITORY}}:${GITHUB_SHA}"
+               export DOCKER_IMAGE_URL="${{vars.GAR_LOCATION}}-docker.pkg.dev/${{ vars.PROJECT_ID }}/${{vars.GAR_REPOSITORY}}/quote-api:${GITHUB_SHA}"
                echo $DOCKER_IMAGE_URL
                docker build -t $DOCKER_IMAGE_URL  app/
                docker push $DOCKER_IMAGE_URL
