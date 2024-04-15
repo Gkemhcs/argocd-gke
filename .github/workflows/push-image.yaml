@@ -47,6 +47,8 @@ jobs:
             run : echo "${{steps.push_container.outputs}}"
      replace_image_tag:
          runs-on: ubuntu-latest 
+         permissions:
+          contents: write
          needs:
          - push_image_to_registry
          steps:
@@ -60,6 +62,7 @@ jobs:
               
                 sed -i "s/\({{\.Values\.image\.LOCATION}}-docker\.pkg\.dev\/{{\.Values\.image\.PROJECT_ID}}\/{{\.Values\.image\.REPOSITORY_NAME}}\/quote-api:\)[^:]*/\1${GITHUB_SHA}/g" quote-api-helm-chart/templates/quote_api/rollout.yaml
                 cat quote-api-helm-chart/templates/quote_api/rollout.yaml
+               
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git config --local user.name "github-actions[bot]"
                 git add .
