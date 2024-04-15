@@ -1,0 +1,22 @@
+name:  IMAGE_PUSHER
+run-name: image_pusher 
+on:
+    push:
+      paths:
+      - app/*
+
+jobs:
+     push_image_to_registry:
+          runs-on: ubuntu-latest 
+          outputs:
+             DOCKER_IMAGE: ${{steps.}}
+          steps:
+          - name: starting_step
+            run:  "echo 'WORKFLOW STARTED'"
+          - name: github checkout 
+            run:  actions/checkout@v4
+          - run: "ls"
+
+
+        
+    
