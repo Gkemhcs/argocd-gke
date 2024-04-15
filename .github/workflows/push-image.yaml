@@ -3,7 +3,7 @@ run-name: image_pusher
 on:
     push:
       paths:
-      - app/*
+      - app/**
 
 jobs:
      push_image_to_registry:
