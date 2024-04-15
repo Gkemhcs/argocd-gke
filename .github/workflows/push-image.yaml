@@ -8,8 +8,7 @@ on:
 jobs:
      push_image_to_registry:
           runs-on: ubuntu-latest 
-          outputs:
-             DOCKER_IMAGE: ${{steps.}}
+          
           steps:
           - name: starting_step
             run:  "echo 'WORKFLOW STARTED'"
