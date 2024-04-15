@@ -16,7 +16,7 @@ jobs:
             
             run:  "echo 'WORKFLOW STARTED'"
           - name: github checkout 
-            run:  actions/checkout@v2
+            uses:  actions/checkout@v2
           - run: "ls"
 
 
