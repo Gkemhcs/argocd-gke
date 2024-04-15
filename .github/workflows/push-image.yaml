@@ -8,12 +8,15 @@ on:
 jobs:
      push_image_to_registry:
           runs-on: ubuntu-latest 
-          
+          permissions:
+            contents: 'read'
+            id-token: 'write'
           steps:
           - name: starting_step
+            
             run:  "echo 'WORKFLOW STARTED'"
           - name: github checkout 
-            run:  actions/checkout@v4
+            run:  actions/checkout@v2
           - run: "ls"
 
 
