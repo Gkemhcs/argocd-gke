@@ -58,7 +58,7 @@ jobs:
          - name: replace the image tag  and commit files 
            run: |
               
-                sed -i "s/\(${{vars.GAR_LOCATION}}-docker.pkg.dev\/${PROJECT_ID}\/${{vars.GAR_REPOSITORY}}\/quote-api:\)[^ ]*/\1${GITHUB_SHA}/g" quote-api-helm-chart/templates/quote_api/rollout.yaml
+                sed -i "s/\({{\.Values\.image\.LOCATION}}-docker\.pkg\.dev\/{{\.Values\.image\.PROJECT_ID}}\/{{\.Values\.image\.REPOSITORY_NAME}}\/quote-api:\)[^:]*/\1${GITHUB_SHA}/g" quote-api-helm-chart/templates/quote_api/rollout.yaml
                 cat quote-api-helm-chart/templates/quote_api/rollout.yaml
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                 git config --local user.name "github-actions[bot]"
