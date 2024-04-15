@@ -24,7 +24,7 @@ jobs:
              token_format: 'access_token'
              workload_identity_provider: '${{ secrets.WIF_PROVIDER }}' 
              service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}'
-          - run : "echo ${{vars.GAR_LOCATION}}"
+          - run : "echo ${{vars.GAR_LOCATION  }}"
           - name: docker-login
             id: docker_login
             
@@ -36,7 +36,7 @@ jobs:
           - name: Build and Push container 
             id: push_container
             run: |
-               export DOCKER_IMAGE_URL="${{vars.GAR_LOCATION}}-docker.pkg.dev/${{ vars.PROJECT_ID }}/${{ vars.GAR_REPOSITORY }}:${{ github.sha }}"
+               export DOCKER_IMAGE_URL="${{vars.GAR_LOCATION}}-docker.pkg.dev/${{ vars.PROJECT_ID }}/${{vars.GAR_REPOSITORY}}:${GITHUB_SHA}"
                echo $DOCKER_IMAGE_URL
                docker build -t $DOCKER_IMAGE_URL  app/
                docker push $DOCKER_IMAGE_URL
