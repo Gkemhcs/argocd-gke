@@ -5,7 +5,7 @@ metadata:
   name: quote-api-gateway 
   namespace: {{.Values.quote_api_service.namespace}}
 spec:
-  gatewayClassName: gke-l7-regional-external-managed
+  gatewayClassName:  gke-l7-global-external-managed
   listeners:
   - name: http
     protocol: HTTP
