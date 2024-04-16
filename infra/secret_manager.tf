@@ -24,7 +24,7 @@ resource "google_secret_manager_secret_iam_binding" "api_host_binding" {
   secret_id = google_secret_manager_secret.api_host.secret_id
   role = "roles/secretmanager.secretAccessor"
   members = [
-    "serviceAccount:${google_service_account.push_image_to_gar.email}",
+    "serviceAccount:${google_service_account.secret_accessor.email}",
 
   ]
 }
@@ -54,7 +54,7 @@ resource "google_secret_manager_secret_iam_binding" "api_key_binding" {
   secret_id = google_secret_manager_secret.api_key.secret_id
   role = "roles/secretmanager.secretAccessor"
   members = [
-    "serviceAccount:${google_service_account.push_image_to_gar.email}",
+    "serviceAccount:${google_service_account.secret_accessor.email}",
     
   ]
 }

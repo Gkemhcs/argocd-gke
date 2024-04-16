@@ -1,5 +1,5 @@
 resource "google_container_cluster" "cluster_us" {
-  name               = "cluster-us-1"
+  name               = "cluster-us"
   location           = "us-central1-a" 
   initial_node_count = 1
 
