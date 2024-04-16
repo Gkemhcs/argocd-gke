@@ -78,7 +78,7 @@ kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/rele
 cd ..
 kubectl apply -f Application.yaml
 ```
-###Successfully we deployed our project Now it,s time to experience it 
+### Successfully we deployed our project Now it,s time to experience it 
 **step8: Access kubernetes gateway service**
 ```bash
 kubectl get gtw quote-api-gateway -n quote-ns
