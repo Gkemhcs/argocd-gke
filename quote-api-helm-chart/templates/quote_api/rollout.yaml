@@ -23,7 +23,7 @@ spec:
       spec:
         containers:
           - name: quote-api 
-            image: {{.Values.image.LOCATION}}-docker.pkg.dev/{{.Values.image.PROJECT_ID}}/{{.Values.image.REPOSITORY_NAME}}/quote-api:28295aecf4bbe4a0d46e4e736d074d04d3673d54
+            image: {{.Values.image.LOCATION}}-docker.pkg.dev/{{.Values.image.PROJECT_ID}}/{{.Values.image.REPOSITORY_NAME}}/quote-api:6b7537b16b4c566a12a1779dbd6bc8a8bf91e8e2
             ports:
             - containerPort: 8080
             envFrom:
