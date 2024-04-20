@@ -9,7 +9,7 @@
  - **HelmCharts**:  used  helm package manager for k8s to deploy the services in gke cluster 
  - **ExternalSecrets**:  custom operator to pull secrets from credentials related to api fro GCPSM(Google Cloud Secret Manager)
  - **Github-Actions**: whenever developer commits to repo ,workflows builds an docker image and pushes it to google artifact registry and updates the image tag in rollout manifest.
- - **Workload-Identity-Federation** : used to authenticate to Google Cloud APIS from Github leevraging keyless authentication
+ - **Workload-Identity-Federation** : used to authenticate to Google Cloud APIS from Github leveraging keyless authentication
 - **Terraform**: used Terraform to automate the infrastructure
  ##### Here is the architecture of  quote-generator-api project 
  !["Architecture rendering failed"](./images/quote-generator-architecture.jpg)
